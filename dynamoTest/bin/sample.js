@@ -38,7 +38,7 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 console.log("Start the Query");
 
 var params = {
-    TableName : "request_summary",
+    TableName : "TableName",
     ProjectionExpression : "#did, #met, #ts, #reqUrl, #hmet",
     ExpressionAttributeNames: {
         "#did" : "id",
