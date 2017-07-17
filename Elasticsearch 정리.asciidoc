@@ -17,6 +17,13 @@ ps -ef | grep elasticsearch
 ps | grep elasticsearch
 Kill -9 프로세스넘버
 
+5. 엘라스틱서치 노드들의 상태값 표시
+http://localhost:9200/_cluster/state/nodes
+
+6. 백그라운드 로그는 logs/elasticsearch.log 파일에 기록
+
+7. bin/elasticsearch.in.sh 파일에서 자바 메모리 설정 변경(-Xms, -Xmx 옵션은 ES_MIN_MEM, ES_MAX_MEM)
+
 = Elasticsearch Search API
 * index 내 전체 조회
 [source]
