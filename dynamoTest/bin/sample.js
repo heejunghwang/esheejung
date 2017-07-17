@@ -55,7 +55,7 @@ var params = {
 };
 
 /**
- * DynamoDb 엘란 로그 전체 데이터 조회
+ * DynamoDb 전체 데이터 조회
  * @param err
  * @param data
  */
