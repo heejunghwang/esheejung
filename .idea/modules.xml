@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/elanLogs.iml" filepath="$PROJECT_DIR$/elanLogs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dynamoTest.iml" filepath="$PROJECT_DIR$/dynamoTest.iml" />
     </modules>
   </component>
 </project>
