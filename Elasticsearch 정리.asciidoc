@@ -1,0 +1,78 @@
+= Elasticsearch 자주 사용하는 명령어
+
+1. Elasitcsearch 실행로그 확인
+[source]
+cat logs/elasticsearch.log
+
+2. elasticsearch index 확인
+[source]
+http://localhost:9200/_cat/indices?v&pretty
+
+3. Elastic search process 확인
+[source]
+ps -ef | grep elasticsearch
+
+4. Elastic search demon 실행중지
+[source]
+ps | grep elasticsearch
+Kill -9 프로세스넘버
+
+= Elasticsearch Search API
+* index 내 전체 조회
+[source]
+http://localhost:9200/encar/_search
+
+= Elasticsearch Aggregation
+[source]
+POST
+http://localhost:9200/encar/_search
+{
+  "size": 0,
+  "aggs": {
+    "group_by_handlerMethod": {
+      "terms": {
+        "field": "handlerMethod",
+         "order" : { "_count" : "asc" },
+           "size": 1000
+      }
+	  }
+  }
+}
+
+= Kibana 설정 파일
+[source]
+server.host: "0.0.0.0" //kibana 바인딩 호스트
+elasticsearch.url: "http://localhost:9200"  //elasticsearch url
+
+- Kibana 프로세스 중지
+[source]
+ps -ef | grep '.*node/bin/node.*src/cli'
+
+
+== 참고 방화벽 설정
+1. Elasticsearch 방화벽 9200 포트열기
+[source]
+firewall-cmd --zone=public --permanent --add-port=9200/tcp
+firewall-cmd --reload
+firewall-cmd --zone=public --list-all
+
+2. Elasticsearch 외부에서 접속
+[source]
+(/elasticsearch-5.4.1/config/elasticsearch.yml)
+network.bind_host : 0.0.0.0
+transport.host : localhost
+
+3. 키바나 방화벽 설정
+[source]
+firewall-cmd --zone=public --permanent --add-port=5601/tcp
+firewall-cmd --reload
+firewall-cmd --zone=public --list-all
+
+4. 키바나 데몬으로 실행
+[source]
+nohup ./kibana &
+
+== 자바 참고사항
+1. 자바 Heap사이즈 확인
+[source]
+java -XX:+PrintFlagsFinal -version 2>&1 | grep -i -E 'heapsize|permsize|version'
