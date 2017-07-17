@@ -1,0 +1,5 @@
+프로젝트 실행 전
+npm install aws-sdk
+
+/bin 하위 폴더로 이동
+node sample.js
