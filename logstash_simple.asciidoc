@@ -14,12 +14,12 @@ input {
 	statement => "select * from dual"
 	}
 }
-
 output {
 	stdout {
 			codec => rubydebug
 	}
 }
+
 3. 실행
 [source]
 /logstash-5.4.1/bin 하위
