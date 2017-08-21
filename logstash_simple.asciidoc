@@ -20,6 +20,24 @@ output {
 	}
 }
 
+2. elasticsearch 연동
+- output elasticsearch 추가
+[source]
+output {
+        stdout {
+                codec => rubydebug
+        }
+
+        elasticsearch {
+                hosts => ["localhost:9200"]
+                index => "school"
+                document_type => "students"
+
+        }
+}
+
+
+
 3. 실행
 [source]
 /logstash-5.4.1/bin 하위
