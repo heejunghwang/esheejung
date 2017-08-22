@@ -12,7 +12,7 @@ https://bitbucket.org/eunjeon/seunjeon/src/dba5dfd60998b51afde5f3ea6fa74368e8b50
 
 - elasticsearch restart 후 적용됨
 
-- example
+- Analyzer 적용 예
 ```
  curl -XPUT "localhost:9200/?pretty" -d '{
   "settings" : {
@@ -37,3 +37,42 @@ https://bitbucket.org/eunjeon/seunjeon/src/dba5dfd60998b51afde5f3ea6fa74368e8b50
 }'
 
 ```
+
+- Analyzer 확인
+
+예
+~~~
+curl -XPOST 'localhost:9200/school/_analyze?pretty' -H 'Content-Type: application/json' -d'
+{
+  "analyzer": "korean",
+  "text":     "아버지가방에들어가신다"
+}'
+~~~
+
+결과
+~~~
+ "tokens" : [
+    {
+      "token" : "아버지/N",
+      "start_offset" : 0,
+      "end_offset" : 3,
+      "type" : "N",
+      "position" : 0
+    },
+    {
+      "token" : "방/N",
+      "start_offset" : 4,
+      "end_offset" : 5,
+      "type" : "N",
+      "position" : 1
+    },
+    {
+      "token" : "들어가/V",
+      "start_offset" : 6,
+      "end_offset" : 9,
+      "type" : "V",
+      "position" : 2
+    }
+  ]
+
+~~~
