@@ -76,3 +76,6 @@ curl -XPOST 'localhost:9200/school/_analyze?pretty' -H 'Content-Type: applicatio
   ]
 
 ~~~
+
+예제
+http://blog.nacyot.com/articles/2015-06-13-eunjeon-with-elasticsearch/
