@@ -24,6 +24,10 @@ http://localhost:9200/_cluster/state/nodes
 
 7. bin/elasticsearch.in.sh 파일에서 자바 메모리 설정 변경(-Xms, -Xmx 옵션은 ES_MIN_MEM, ES_MAX_MEM)
 
+= Index setting confirm
+[source]
+http://localhost:9200/school/_settings?pretty
+
 = Elasticsearch Search API
 * index 내 전체 조회
 [source]
