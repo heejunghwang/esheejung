@@ -28,6 +28,11 @@ http://localhost:9200/_cluster/state/nodes
 [source]
 http://localhost:9200/school/_settings?pretty
 
+= index refresh
+```
+curl -XPOST 'localhost:9200/index/_refresh?pretty'
+```
+
 = 필드 매핑 조회
 (school은 index, students는 type)
 [source]
