@@ -1,4 +1,9 @@
-은전한잎s 다운로드
+```
+[NOTICE]
+여기 예제에서 school은 인덱스명, students는 type명입니다.
+```
+
+# 은전한잎s 다운로드
 - 링크
 ```
 https://bitbucket.org/eunjeon/seunjeon/src/dba5dfd60998b51afde5f3ea6fa74368e8b50b9a/elasticsearch/?at=master
@@ -12,7 +17,7 @@ https://bitbucket.org/eunjeon/seunjeon/src/dba5dfd60998b51afde5f3ea6fa74368e8b50
 
 - elasticsearch restart 후 적용됨
 
-- Analyzer 적용 예 (index name : school)
+# Analyzer 적용 예 (index name : school)
 ```
  curl -XPUT "localhost:9200/school?pretty" -d '{
   "settings" : {
@@ -38,7 +43,7 @@ https://bitbucket.org/eunjeon/seunjeon/src/dba5dfd60998b51afde5f3ea6fa74368e8b50
 
 ```
 
-- Analyzer 확인
+# Analyzer 확인
 
 예
 ~~~
@@ -77,11 +82,74 @@ curl -XPOST 'localhost:9200/school/_analyze?pretty' -H 'Content-Type: applicatio
 
 ~~~
 
+# 필드 Mapping 정보 설정, 조회
+```
+- 매핑정보 확인
+http://localhost:9200/school/_mapping/students
+```
+
+```
+- 필드 매핑설정
+curl -XPUT 'localhost:9200/school/_mapping/students?pretty' -H 'Content-Type: application/json' -d'
+{
+    "properties": {
+        "fieldName": {
+            "type":      "text",
+            "analyzer":  "korean",
+            "search_analyzer": "korean"
+        }
+    }
+}
+'
+```
+
+- test data
+```
+curl -XPUT 'http://localhost:9200/school/students/1' -d '{"car": "아버지가 방에 들어간다"}'
+```
+
+- 확인
+```
+http://localhost:9200/school/_search?q=fieldName:'아버지'
+```
+
+```
+{
+    "took": 3,
+    "timed_out": false,
+    "_shards": {
+        "total": 5,
+        "successful": 5,
+        "failed": 0
+    },
+    "hits": {
+        "total": 2,
+        "max_score": 0.25316024,
+        "hits": [
+            {
+                "_index": "school",
+                "_type": "students",
+                "_id": "1",
+                "_score": 0.25316024,
+                "_source": {
+                    "fieldName": "아버지가 방에 들어간다"
+                }
+            },
+            {
+                "_index": "school",
+                "_type": "students",
+                "_id": "3",
+                "_score": 0.25316024,
+                "_source": {
+                    "fieldName": "아버지가 방에 들어간다"
+                }
+            }
+        ]
+    }
+}
+```
+
+
 예제
 1. http://blog.nacyot.com/articles/2015-06-13-eunjeon-with-elasticsearch/
 2. http://blog.naver.com/PostView.nhn?blogId=ysulshin&logNo=220929771145
-
-* Mapping 정보 조회
-```
-http://localhost:9200/school/_mapping/students
-```
