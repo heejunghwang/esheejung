@@ -105,7 +105,7 @@ curl -XPUT 'localhost:9200/school/_mapping/students?pretty' -H 'Content-Type: ap
 
 - test data
 ```
-curl -XPUT 'http://localhost:9200/school/students/1' -d '{"car": "아버지가 방에 들어간다"}'
+curl -XPUT 'http://localhost:9200/school/students/1' -d '{"fieldName": "아버지가 방에 들어간다"}'
 ```
 
 - 확인
