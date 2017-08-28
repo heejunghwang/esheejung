@@ -17,7 +17,7 @@ https://bitbucket.org/eunjeon/seunjeon/src/dba5dfd60998b51afde5f3ea6fa74368e8b50
 
 - elasticsearch restart 후 적용됨
 
-# Analyzer 적용 예 (index name : school)
+# Analyzer 적용 예
 ```
  curl -XPUT "localhost:9200/school?pretty" -d '{
   "settings" : {
