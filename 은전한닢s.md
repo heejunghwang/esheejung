@@ -111,7 +111,21 @@ curl -XPUT 'http://localhost:9200/school/students/1' -d '{"fieldName": "아버�
 - 확인
 ```
 http://localhost:9200/school/_search?q=fieldName:'아버지'
+
+또는
+
+POST
+http://localhost:9200/school/_search
+{
+	"query":{
+		"multi_match" : {
+			"query" : "아버지",
+			"fields" : "fieldName"
+		}
+	}
+}
 ```
+
 
 ```
 {
