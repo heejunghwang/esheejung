@@ -8,8 +8,6 @@
    * 예제 파일에서는 synonym.txt 이름으로 생성함.
 
 ~~~
-sea cow => manatee
-cat, feline, lolcat
 소나타, 쏘나타
 노트북, labtop, notebook
 ~~~
