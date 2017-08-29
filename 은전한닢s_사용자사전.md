@@ -18,7 +18,7 @@ http://localhost:9200/indexName
 
 2. 사용자 사전 생성(csv 형태여야함)
 
-   - /Elasticsearch_HOME/dic/customdic.csv 파일 (반드시 UTF-8로 인코딩된 파일이어야 함)
+   - /Elasticsearch_HOME/dic/customdic.csv 파일 __(반드시 UTF-8로 인코딩된 파일이어야 함)__
 ```
 고프로,-100
 낄끼빠빠
