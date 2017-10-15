@@ -18,7 +18,7 @@ docker run -d -p 9200:9200 -p 9300:9300 -it -h elasticsearch --name elasticsearc
 
 확인 : curl http://localhost:9200/
 
-* check config file in elasticsearch
+* check config file in elasticsearch and copy the elasticsearch.yml file
 ~~~
 
 ➜  ~ docker run -d -p 9200:9200 -p 9300:9300 -it -h elasticsearch --name elasticsearch elasticsearch
@@ -39,6 +39,33 @@ http.host: 0.0.0.0
 #discovery.zen.minimum_master_nodes: 1
 #
 ~~~
+
+* change the elasticsearch.yml file : cluster.name setting
+~~~
+# cat elasticsearch.yml
+http.host: 0.0.0.0
+
+# Uncomment the following lines for a production cluster deployment
+#transport.host: 0.0.0.0
+#discovery.zen.minimum_master_nodes: 1
+cluster.name: elasticsearch
+~~~
+
+* docker start with the customized config file
+~~~
+docker run -d -p 9200:9200 -p 9300:9300 -v /Users/dev/dockertest/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml -it -h elasticsearch --name elasticsearch elasticsearch
+~~~
+
+* check the result
+~~~
+http://localhost:9200/_cat/health?v&pretty
+~~~
+
+~~~
+epoch      timestamp cluster       status node.total node.data shards pri relo init unassign pending_tasks max_task_wait_time active_shards_percent
+1508034932 02:35:32  elasticsearch green           1         1      0   0    0    0        0             0                  -                100.0%
+~~~
+
 
 
 ## kibana 세팅
