@@ -4,3 +4,5 @@
 ~~~
 npm install
 ~~~
+
+* bin foler 참조
