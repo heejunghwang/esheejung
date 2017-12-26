@@ -1,0 +1,14 @@
+소나타, 쏘나타
+노트북, labtop, notebook
+BMW, 비엠더블유
+Coupe, 쿠페
+Sport, 스포츠
+Luxury, 럭셔리
+Plus, 플러스
+Prestgie, 프레스티지
+Performance, 퍼포먼스
+Sedan, 세단
+Active, 액티브
+Tourer, 투어
+Joy, 조이
+Plus, 플러스
