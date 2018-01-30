@@ -4,7 +4,9 @@
 
 * 오류 메시지
 ~~~
+Failed to load http://~~~~~~/:
 No 'Access-Control-Allow-Origin' header is present on the requested resource ~~~
+Origin 'http://localhost:8080' is therefore not allowed access.
 ~~~
 
 * elasticsearch.yml 파일에서 아래 추가해주도록 한다.
