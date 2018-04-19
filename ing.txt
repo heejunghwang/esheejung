@@ -1,1 +1,0 @@
-플러그인 만들어 보기 https://github.com/jettro/elastic-basic-plugin
